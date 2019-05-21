@@ -1,0 +1,107 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+section {
+    margin: 150px 100px 150px 100px;
+    padding-bottom: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    border: solid 1px rgb(230, 243, 255);
+    box-shadow: 2px 2px 2px rgb(230, 230, 230);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    width: 250px;
+    height: auto;
+    float: left;
+    display: block;
+}
+
+.box {
+    height: auto;
+    float: left;
+}
+
+.box-content-visited {
+    width: 250px;
+    height: auto;
+    float: left;
+    display: block;
+    border-right: solid 1px #f2f2f2;
+}
+
+.box-content-expand {
+    width: 250px;
+    height: auto;
+    float: left;
+    display: block;
+}
+
+.title-visited{
+    display: block;
+    font-size: 1.6em;
+    padding: 9px 0px 9px 20px;
+    color: #004080;
+    font-size: 1.3em;
+    background: #e6f2ff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title-expand {
+    display: block;
+    font-size: 1.6em;
+    padding: 9px 0px 9px 20px;
+    color: #004080;
+    font-size: 1.3em;
+    background: #e6f2ff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.image {
+    height: 160px;
+    width: 170px;
+    padding-left: 20px;
+    display: block;
+    margin: 15px;
+}
+
+.text-content {
+    display: block;
+    margin: 15px;
+    text-align: auto;
+    color: black;
+    font-size: 0.9em;
+}
+
+
+.text-color {
+    color: red;
+}
+
+.roll-left {
+    margin-top: 90px;
+    float: left;
+    font-size: 1.9em;
+}
+
+
+.roll-right {
+    margin-top: 90px;
+    float: left;
+    font-size: 1.9em;
+}
+
