@@ -1,24 +1,15 @@
 class Vitrine {
 
-    constructor(object, visitedEl, expandEl){
+    constructor(object, visitedEl, expandEl, btnLeft, btnRight){
 
         this.object = object;
         this.visitedEl = document.querySelector(visitedEl);
         this.expandEl = document.querySelector(expandEl);
-
-        this.carousel();
-        
-    }
-
-    carousel() {
+        this.btnLeft = document.querySelector(btnLeft);
+        this.btnRight = document.querySelector(btnRight)
 
         this.visited();
-        this.expand();
-        this.buttonLeft();
-        this.buttonRight();
-       
     }
-    
 
     visited() {
 
@@ -31,13 +22,15 @@ class Vitrine {
         <a href="${visitedObj.detailUrl}">
         <img class="image" src="${visitedObj.imageName}">
         <span class="text-content">${visitedObj.name}</span>
-        <span class="text-content">De: ${visitedObj.oldPrice}</br>
-        <span class="text-color"> Por: <strong>${visitedObj.price}</strong> ${visitedObj.productInfo.paymentConditions}</span>
-        </span>
+        <span class="text-content">De: ${visitedObj.oldPrice}</span>
+        <span class="text-color"> Por: <strong>${visitedObj.price}</strong></span>
+        <span class="text-color">${visitedObj.productInfo.paymentConditions}</span>
         </a>
         </li>
         `
         this.visitedEl.appendChild(li);
+
+        this.expand();
 
     }
 
@@ -58,9 +51,9 @@ class Vitrine {
                 <a href="${expandObj.detailUrl}">
                 <img class="image" src="${expandObj.imageName}">
                 <span class="text-content">${expandObj.name}</span>
-                <span class="text-content">De: ${expandObj.oldPrice}</br>
-                <span class="text-color"> Por: <strong>${expandObj.price}</strong> ${expandObj.productInfo.paymentConditions}</span>
-                </span>
+                <span class="text-content">De: ${expandObj.oldPrice}</span>
+                <span class="text-color"> Por: <strong>${expandObj.price}</strong></span>
+                <span class="text-color">${expandObj.productInfo.paymentConditions}</span>
                 </a>
                 </li>
                 `
@@ -81,9 +74,9 @@ class Vitrine {
                 <a href="${expandObj.detailUrl}">
                 <img class="image" src="${expandObj.imageName}">
                 <span class="text-content">${expandObj.name}</span>
-                <span class="text-content">De: ${expandObj.oldPrice}</br>
-                <span class="text-color"> Por: <strong>${expandObj.price}</strong> ${expandObj.productInfo.paymentConditions}</span>
-                </span>
+                <span class="text-content">De: ${expandObj.oldPrice}</span>
+                <span class="text-color"> Por: <strong>${expandObj.price}</strong></span>
+                <span class="text-color">${expandObj.productInfo.paymentConditions}</span>
                 </a>
                 </li>
                 `
@@ -94,21 +87,28 @@ class Vitrine {
 
             }
 
-        })
+            
 
+        }) // end forEach
+        
+        this.btnRight.classList.add("btn-effect");
+
+        this.buttonLeft();
+        this.buttonRight();
 
     }
 
     buttonLeft() {
 
-        let rollLeft = document.querySelector(".roll-left");
-
-        rollLeft.addEventListener("click", (e) => {
+        this.btnLeft.addEventListener("click", e => {
 
             let lista = document.querySelectorAll(".list-expand li");
               
                 if(lista[0].style.display == "none" && lista[4].style.display == "block" && lista[8].style.display == "none") {
-                
+
+                    this.btnRight.classList.add("btn-effect")
+                    this.btnLeft.classList.remove("btn-effect")
+    
                 for(let i = 0; i <= 7; i++){
 
                     if(i <= 3) {
@@ -117,11 +117,14 @@ class Vitrine {
                     } else {
                     lista[i].style.display = "none";
                     }
-                }
+                } // end for
+
+                return false;
 
             } if (lista[0].style.display == "none" && lista[4].style.display == "none" && lista[8].style.display == "block") {
 
-                console.log("chegou")
+                this.btnRight.classList.add("btn-effect")
+                this.btnLeft.classList.add("btn-effect")
 
                 for(let i = 4; i <= 9; i++){
 
@@ -131,63 +134,63 @@ class Vitrine {
                     } else {
                     lista[i].style.display = "none";
                     }
-                }
+                } // end for
+
+    
 
             }
 
             
 
-    });
+    }); // end addEventListener
 
     }
 
     buttonRight() {
 
-        let rollRight = document.querySelector(".roll-right")
-
-        rollRight.addEventListener("click", (e) => {
+        this.btnRight.addEventListener("click", e => {
 
             let lista = document.querySelectorAll(".list-expand li");
 
-                if(lista[0].style.display == "block" && lista[1].style.display == "block" && lista[2].style.display == "block" && lista[3].style.display == "block" &&
-                lista[4].style.display == "none" && lista[5].style.display == "none" && lista[6].style.display == "none" && lista[7].style.display == "none") {
-                
-                for(let i = 0; i <= 7; i++){
+                if(lista[0].style.display == "block" && lista[4].style.display == "none" && lista[8].style.display == "none") {
 
-                    console.log("chegou no 1")
+                this.btnRight.classList.add("btn-effect")
+                this.btnLeft.classList.add("btn-effect")
+                
+                for(let i = 0; i <= 7; i++) {
+
                     if(i <= 3) {
                     lista[i].style.display = "none";
 
                     } else {
-
                     lista[i].style.display = "block";
 
                     }
-                } //end for
+                } 
+                
+                return false;//end for
+         }
+             if (lista[0].style.display == "none" && lista[4].style.display == "block" && lista[8].style.display == "none") {
 
-            } if (lista[4].style.display == "block" && lista[5].style.display == "block" && lista[6].style.display == "block"
-             && lista[7].style.display == "block" && lista[8].style.display == "none" && lista[9].style.display == "none") {
+                this.btnRight.classList.remove("btn-effect")
+                this.btnLeft.classList.add("btn-effect")
 
-                console.log("chegou no 2")
-                for(let i = 4; i <= 9; i++){
-
+                for(let i = 4; i <= 9; i++) {
+                    
                     if(i <= 5) {
                     lista[i].style.display = "none";
 
                     } else {
                     lista[i].style.display = "block";
+
                     }
-                }
-    
+                } // end for
+                
                      
             } 
-    
-         // end if
 
         
-        
-        }  // end EventListener
-    )
+    }); // end addEventListener 
 
     }
 
