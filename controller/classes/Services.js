@@ -1,4 +1,4 @@
-class Services {
+class Services { // está classe serve justamente para a chamada da API e caso também necessite abstrair a manipulação do objeto recebido como resposta
 
     constructor(){
 
