@@ -2,7 +2,7 @@ class Services { // está classe serve justamente para a chamada da API e caso t
 
     constructor(){
 
-        const URL = "https://roberval.chaordicsystems.com/challenge/challenge.json?callback=X"
+        const URL = "http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X"
         
         this.http(URL)
 
